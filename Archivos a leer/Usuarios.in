@@ -1,7 +1,7 @@
-Nombre y apellido|Tipo de atraccion preferida|Presupuesto|Tiempo
-Frodo Bolson|aventura|10|8
-Galardiel|paisajes|100|5
-Sam Gamyi|banquetes|36|8
-Gandalf|paisajes|500|4
-Bilbo Bolson|aventura|17|9
-Gollum|banquetes|89|14
+Nombre y apellido|Tipo de atraccion preferida|Presupuesto en monedas de oro|Tiempo en horas
+Frodo Bolson|Aventura|39|7
+Galardiel|Paisaje|48|4
+Sam Gamyi|Banquete|35|6
+Gandalf|Paisaje|198|9
+Bilbo Bolson|Aventura|47|9
+Gollum|Banquete|12|4

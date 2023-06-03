@@ -1,9 +1,12 @@
 Nombre|Costo en monedas de oro|Tiempo en horas|Cupo|Tipo
-Moria|25|2|6|Aventura
-Minas Tirith|29|2.5|4|Paisaje
-La Comarca|19|3.5|5|Banquete
 Mordor|18|3|4|Aventura
+Moria|21|2|6|Aventura
+Lothlorien|21|1.5|4|Aventura
+Bosque Negro|19|3|1|Aventura
 Abismo de Helm|89|2|4|Paisaje
-Lothlorien|35|1|2|Banquete
+Minas Tirith|29|2.5|4|Paisaje
+Bosque de Fangorn|21|1.5|3|Paisaje
 Erebor|14|2|1|Paisaje
-Bosque Negro|21|4|1|Aventura
+Numenor|26|1|2|Banquete
+La Comarca|19|3.5|5|Banquete
+Riverdel|19|1.5|6|Banquete

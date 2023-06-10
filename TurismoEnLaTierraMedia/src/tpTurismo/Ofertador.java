@@ -8,11 +8,6 @@ import java.util.Scanner;
 
 public class Ofertador {
 
-//	private float precioFinal;
-//	private float precioInicial;
-//	private float tiempo;
-//	private List<Atraccion> atracciones;
-
 	public static void main(String[] args) throws IOException {
 
 		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
@@ -31,7 +26,6 @@ public class Ofertador {
 
 		for (Usuario usuario : listaUsuarios) {
 			System.out.println(usuario);
-			// String preferida = usuario.consultarAtraccionPreferida();
 
 			List<Atraccion> atraccionesPreferidas = new ArrayList<Atraccion>();
 			List<Atraccion> atraccionesRestantes = new ArrayList<Atraccion>();
@@ -46,7 +40,6 @@ public class Ofertador {
 			Collections.sort(atraccionesPreferidas, new AtraccionComparator());
 			Collections.sort(atraccionesRestantes, new AtraccionComparator());
 
-			// PAQUETES
 			List<Promocion> promocionesPreferidas = new ArrayList<Promocion>();
 			List<Promocion> promocionesRestantes = new ArrayList<Promocion>();
 
@@ -113,13 +106,13 @@ public class Ofertador {
 						itinerario.agregarPromocion(promo);
 						usuario.actualizarPresupuestoYTiempo(promo.consultarPrecioFinal(),
 								promo.consultarTiempoTotal());
-						// actualizo cupo de promo y atracciones
+						// Actualiza el cupo de promociones y atracciones
 						listaPromociones.get(indicePromoAOfertar).actualizarCupo();
 
 						List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
 						atraccionesIncluidas = listaPromociones.get(indicePromoAOfertar).getAtraccionesIncluidas();
 
-						// actualiza cupo de las atracciones que se anoto
+						// Actualiza el cupo de las atracciones que acepta el usuario
 						for (Atraccion atraccion : atraccionesIncluidas) {
 							int indice = listaAtracciones.indexOf(atraccion);
 							listaAtracciones.get(indice).actualizarCupo();
@@ -194,7 +187,6 @@ public class Ofertador {
 			}
 
 			// for promo restante
-
 			for (Promocion promo : promocionesRestantes) {
 
 				int indicePromoAOfertar = listaPromociones.indexOf(promo);

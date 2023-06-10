@@ -1,0 +1,15 @@
+Itinerario final
+------------------
+Usuario: Frodo Bolson
+Promociones:
+Nombre Promocion: Pack Super Aventura
+Duracion: 5.5
+Atracciones incluidas: 
+- [nombre=Lothlorien, duracionEnHs=1.5, tipoAtraccion=Aventura]
+- [nombre=Bosque Negro, duracionEnHs=3.0, tipoAtraccion=Aventura]
+- [nombre=Mordor, duracionEnHs=1.0, tipoAtraccion=Aventura]
+Atracciones: 
+-------------
+- [nombre=Minas Tirith, duracionEnHs=1.5, tipoAtraccion=Paisaje]
+Precio final a abonar: 63 monedas de oro
+Duracion total del recorrido: 7.0 hs

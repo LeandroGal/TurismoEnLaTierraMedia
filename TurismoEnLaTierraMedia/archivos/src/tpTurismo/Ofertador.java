@@ -308,7 +308,7 @@ public class Ofertador {
 					continue;
 				}
 
-				System.out.println("-----------------------------------------------------------------");
+				System.out.println("----------------------------------------------------------------");
 			}
 
 			// mostrar itinerario

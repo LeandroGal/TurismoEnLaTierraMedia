@@ -14,6 +14,23 @@ public class Usuario {
 		this.horasDisponibles = horasDisponibles;
 	}
 
+	public String consultarNombre() {
+		return this.nombreApellido;
+	}
+
+	public String consultarAtraccionPreferida() {
+		return this.tipoAtraccionPreferida;
+	}
+	
+	public int consultarPresupuesto() {
+		return this.presupuesto;
+	}
+
+	public float consultarTiempo() {
+		return this.horasDisponibles;
+	}
+	
+	
 	public boolean actualizarPresupuestoYTiempo(int precio, float tiempo) {
 
 		if (this.presupuesto >= precio && this.horasDisponibles >= tiempo) {
@@ -24,26 +41,12 @@ public class Usuario {
 		return false;
 	}
 
-	public int consultarPresupuesto() {
-		return this.presupuesto;
-	}
-
-	public float consultarTiempo() {
-		return this.horasDisponibles;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "Usuario [nombreApellido=" + nombreApellido + ", tipoAtraccionPreferida=" + tipoAtraccionPreferida
 				+ ", presupuesto=" + presupuesto + ", horasDisponibles=" + horasDisponibles + "]";
-	}
-
-	public String consultarAtraccionPreferida() {
-		return this.tipoAtraccionPreferida;
-	}
-
-	public String consultarNombre() {
-		return this.nombreApellido;
 	}
 
 }

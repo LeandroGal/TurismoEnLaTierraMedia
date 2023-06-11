@@ -27,7 +27,7 @@ public class PromocionPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		return super.toString() + "PromocionPorcentual [porcentaje=" + porcentaje + "]";
+		return super.toString() + "PromocionPorcentual [porcentaje = " + porcentaje + "]";
 	}
 
 }

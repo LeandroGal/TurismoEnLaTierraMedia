@@ -25,6 +25,8 @@ public class Ofertador {
 		Scanner scanner = new Scanner(System.in);
 
 		for (Usuario usuario : listaUsuarios) {
+			System.out.println();
+			System.out.println();
 			System.out.println(usuario);
 
 			List<Atraccion> atraccionesPreferidas = new ArrayList<Atraccion>();

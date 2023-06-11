@@ -21,7 +21,7 @@ public class PromocionAbsoluta extends Promocion {
 
 	@Override
 	public String toString() {
-		return super.toString() + "PromocionAbsoluta [precioAbsoluto=" + precioAbsoluto + "]";
+		return super.toString() + "PromocionAbsoluta [precioAbsoluto = " + precioAbsoluto + "]";
 	}
 
 }

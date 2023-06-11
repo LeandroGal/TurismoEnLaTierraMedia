@@ -43,8 +43,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombreApellido=" + nombreApellido + ", tipoAtraccionPreferida=" + tipoAtraccionPreferida
-				+ ", presupuesto=" + presupuesto + ", horasDisponibles=" + horasDisponibles + "]";
+		return "Usuario [nombreApellido = " + nombreApellido + ", tipoAtraccionPreferida = " + tipoAtraccionPreferida
+				+ ", presupuesto = " + presupuesto + ", horasDisponibles = " + horasDisponibles + "]";
 	}
 
 }

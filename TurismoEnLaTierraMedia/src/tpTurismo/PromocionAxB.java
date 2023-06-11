@@ -45,7 +45,7 @@ public class PromocionAxB extends Promocion {
 
 	@Override
 	public String toString() {
-		return super.toString() + "PromocionAxB [atraccionesGratis=" + atraccionesGratis + "]";
+		return super.toString() + "PromocionAxB [atraccionesGratis = " + atraccionesGratis + "]";
 	}
 
 	@Override

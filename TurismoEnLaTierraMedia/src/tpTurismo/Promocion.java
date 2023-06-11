@@ -37,8 +37,8 @@ public abstract class Promocion {
 
 	@Override
 	public String toString() {
-		return "Promocion [nombrePromocion=" + nombrePromocion + ", tipoAtraccion=" + tipoPromocion + ", precioInicial="
-				+ precioInicial + ", precioFinal=" + calculoPrecioFinal() + " Tiempo total= " + calculoTiempoTotal()
+		return "Promocion [nombrePromocion = " + nombrePromocion + ", tipoAtraccion = " + tipoPromocion + ", precioInicial = "
+				+ precioInicial + ", precioFinal = " + calculoPrecioFinal() + " Tiempo total = " + calculoTiempoTotal()
 				+ "]";
 	}
 

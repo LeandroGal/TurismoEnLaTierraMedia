@@ -5,7 +5,6 @@ public class Atraccion {
 	private String nombre;
 	private int costo;
 	private float duracionEnHs;
-	// private int cupoTotal;
 	private int cupoDisponible;
 	private String tipoAtraccion;
 
@@ -47,12 +46,12 @@ public class Atraccion {
 
 	@Override
 	public String toString() {
-		return "Atraccion [nombre=" + nombre + ", costo=" + costo + ", duracionEnHs=" + duracionEnHs
-				+ ", cupoDisponible=" + cupoDisponible + ", tipoAtraccion=" + tipoAtraccion + "]";
+		return "Atraccion [nombre = " + nombre + ", costo = " + costo + ", duracionEnHs = " + duracionEnHs
+				+ ", cupoDisponible = " + cupoDisponible + ", tipoAtraccion = " + tipoAtraccion + "]";
 	}
 
 	public String imprimeAtraccion() {
-		return "[nombre=" + nombre + ", duracionEnHs=" + duracionEnHs + ", tipoAtraccion=" + tipoAtraccion + "]";
+		return "[nombre = " + nombre + ", duracionEnHs = " + duracionEnHs + ", tipoAtraccion = " + tipoAtraccion + "]";
 	}
 
 }

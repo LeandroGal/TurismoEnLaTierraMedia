@@ -110,7 +110,7 @@ public class Ofertador {
 						listaPromociones.get(indicePromoAOfertar).actualizarCupo();
 
 						List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-						atraccionesIncluidas = listaPromociones.get(indicePromoAOfertar).getAtraccionesIncluidas();
+						atraccionesIncluidas = listaPromociones.get(indicePromoAOfertar).consultarAtraccionesIncluidas();
 
 						// actualiza cupo de las atracciones que se anoto
 						for (Atraccion atraccion : atraccionesIncluidas) {
@@ -226,7 +226,7 @@ public class Ofertador {
 						listaPromociones.get(indicePromoAOfertar).actualizarCupo();
 
 						List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-						atraccionesIncluidas = listaPromociones.get(indicePromoAOfertar).getAtraccionesIncluidas();
+						atraccionesIncluidas = listaPromociones.get(indicePromoAOfertar).consultarAtraccionesIncluidas();
 
 						// Actualizo cupo de las atracciones que se anoto
 						for (Atraccion atraccion : atraccionesIncluidas) {

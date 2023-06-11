@@ -8,8 +8,6 @@ public abstract class Promocion {
 	protected List<Atraccion> atraccionesIncluidas;
 	protected int tipoPromocion;
 	private int precioInicial;
-	// protected int precioFinal;
-	// private float tiempoTotal;
 
 	public Promocion(String nombrePromocion, List<Atraccion> atraccionesIncluidas, int tipoPromocion) {
 
@@ -17,10 +15,8 @@ public abstract class Promocion {
 		this.atraccionesIncluidas = atraccionesIncluidas;
 		this.tipoPromocion = tipoPromocion;
 		this.precioInicial = calculoPrecioInicial();
-		// this.precioFinal = calculoPrecioFinal();
-		// this.tiempoTotal = calculoTiempoTotal();
 	}
-
+	
 	private int calculoPrecioInicial() {
 		int precio = 0;
 		for (Atraccion elem : this.atraccionesIncluidas) {
@@ -39,13 +35,6 @@ public abstract class Promocion {
 
 	protected abstract int calculoPrecioFinal();
 
-//	@Override
-//	public String toString() {
-//		return "Promocion [nombrePromocion=" + nombrePromocion + ", atraccionesIncluidas=" + atraccionesIncluidas
-//				+ ", tipoAtraccion=" + tipoPromocion + ", precioInicial=" + precioInicial + ", precioFinal="
-//				+ precioFinal + "]";
-//	}
-
 	@Override
 	public String toString() {
 		return "Promocion [nombrePromocion=" + nombrePromocion + ", tipoAtraccion=" + tipoPromocion + ", precioInicial="
@@ -53,12 +42,29 @@ public abstract class Promocion {
 				+ "]";
 	}
 
-	public List<Atraccion> getAtraccionesIncluidas() {
-		return atraccionesIncluidas;
+	public float consultarTiempoTotal() {
+		return this.calculoTiempoTotal();
 	}
 
+	public int consultarPrecioFinal() {
+		return this.calculoPrecioFinal();
+	}
+	
+	public List<Atraccion> consultarAtraccionesIncluidas() {
+		return atraccionesIncluidas;
+	}
+	
+	public String consultarNombrePromocion() {
+		return this.nombrePromocion;
+	}
+	
+	public int consultarPrecioInicial() {
+		return this.precioInicial;
+	}
+	
+
 	public String consultarTipoAtraccion() {
-		return this.getAtraccionesIncluidas().get(0).consultarTipoAtraccion();
+		return this.consultarAtraccionesIncluidas().get(0).consultarTipoAtraccion();
 	}
 
 	public boolean tieneCupo() {
@@ -86,18 +92,6 @@ public abstract class Promocion {
 
 	}
 
-	public int consultarPrecioInicial() {
-		return this.precioInicial;
-	}
-
-	public float consultarTiempoTotal() {
-		return this.calculoTiempoTotal();
-	}
-
-	public int consultarPrecioFinal() {
-		return this.calculoPrecioFinal();
-	}
-
 	public boolean actualizarCupo() {
 		for (Atraccion atraccion : this.atraccionesIncluidas) {
 			if (atraccion.consultarCupo() == 0) {
@@ -107,9 +101,5 @@ public abstract class Promocion {
 		}
 		return true;
 	}
-
-	public String getNombrePromocion() {
-		return this.nombrePromocion;
-	}
-
+	
 }

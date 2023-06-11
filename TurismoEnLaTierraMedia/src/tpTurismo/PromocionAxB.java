@@ -11,14 +11,11 @@ public class PromocionAxB extends Promocion {
 			List<Atraccion> atraccionesGratis) {
 
 		super(nombrePromocion, atraccionesIncluidas, tipoPromocion);
-//		this.nombrePromocion=nombrePromocion;
-//		this.atraccionesIncluidas.addAll(atraccionesIncluidas);
-//		this.tipoAtraccion=tipoAtraccion;
 		this.atraccionesGratis.addAll(atraccionesGratis);
 
 	}
 
-	public List<Atraccion> getAtraccionesGratis() {
+	public List<Atraccion> consultarAtraccionesGratis() {
 		return this.atraccionesGratis;
 	}
 

@@ -53,7 +53,7 @@ public class Itinerario {
 	public boolean puedeOfertarPromocion(Promocion promo) {
 
 		List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-		atraccionesIncluidas = promo.getAtraccionesIncluidas();
+		atraccionesIncluidas = promo.consultarAtraccionesIncluidas();
 
 		for (Atraccion atraccionIncluida : atraccionesIncluidas) {
 			if (this.atraccionesAceptadas.contains(atraccionIncluida)) {
@@ -63,7 +63,7 @@ public class Itinerario {
 
 		if (promo instanceof PromocionAxB) {
 			List<Atraccion> atraccionesGratisIncluidas = new ArrayList<Atraccion>();
-			atraccionesGratisIncluidas = ((PromocionAxB) promo).getAtraccionesGratis();
+			atraccionesGratisIncluidas = ((PromocionAxB) promo).consultarAtraccionesGratis();
 
 			for (Atraccion atraccionGratis : atraccionesGratisIncluidas) {
 				if (this.atraccionesAceptadas.contains(atraccionGratis)) {
@@ -75,7 +75,7 @@ public class Itinerario {
 
 		List<Atraccion> atraccionesPromoItinerario = new ArrayList<Atraccion>();
 		for (Promocion promocionAcept : this.promocionesAceptadas) {
-			atraccionesPromoItinerario = promocionAcept.getAtraccionesIncluidas();
+			atraccionesPromoItinerario = promocionAcept.consultarAtraccionesIncluidas();
 
 			for (Atraccion atraccionIncluida : atraccionesIncluidas) {
 				if (atraccionesPromoItinerario.contains(atraccionIncluida)) {
@@ -96,7 +96,7 @@ public class Itinerario {
 		List<Atraccion> atraccionesEnPromo = new ArrayList<Atraccion>();
 		for (Promocion promocionAceptada : this.promocionesAceptadas) {
 
-			atraccionesEnPromo = promocionAceptada.getAtraccionesIncluidas();
+			atraccionesEnPromo = promocionAceptada.consultarAtraccionesIncluidas();
 			if (atraccionesEnPromo.contains(atraccion)) {
 				return false;
 			}
@@ -112,12 +112,12 @@ public class Itinerario {
 		System.out.println("Promociones: ");
 		System.out.println("-------------");
 		for (Promocion promo : this.promocionesAceptadas) {
-			System.out.println("Nombre Promocion: " + promo.getNombrePromocion());
+			System.out.println("Nombre Promocion: " + promo.consultarNombrePromocion());
 			System.out.println("Duracion: " + promo.calculoTiempoTotal());
 			System.out.println("Atracciones incluidas: ");
 
 			List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-			atraccionesIncluidas = promo.getAtraccionesIncluidas();
+			atraccionesIncluidas = promo.consultarAtraccionesIncluidas();
 
 			for (Atraccion atraccion : atraccionesIncluidas) {
 				System.out.println("- " + atraccion.imprimeAtraccion());
@@ -127,7 +127,7 @@ public class Itinerario {
 				PromocionAxB promo2 = (PromocionAxB) promo;
 				System.out.println(" -Atracciones Gratis: ");
 				List<Atraccion> atraccionesGratis = new ArrayList<Atraccion>();
-				atraccionesGratis = promo2.getAtraccionesGratis();
+				atraccionesGratis = promo2.consultarAtraccionesGratis();
 
 				for (Atraccion atraccionGratis : atraccionesGratis) {
 					System.out.println("- " + atraccionGratis.imprimeAtraccion());
@@ -162,12 +162,12 @@ public class Itinerario {
 
 			printWriter.println("Promociones:");
 			for (Promocion promo : this.promocionesAceptadas) {
-				printWriter.println("Nombre Promocion: " + promo.getNombrePromocion());
+				printWriter.println("Nombre Promocion: " + promo.consultarNombrePromocion());
 				printWriter.println("Duracion: " + promo.calculoTiempoTotal());
 				printWriter.println("Atracciones incluidas: ");
 
 				List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-				atraccionesIncluidas = promo.getAtraccionesIncluidas();
+				atraccionesIncluidas = promo.consultarAtraccionesIncluidas();
 
 				for (Atraccion atraccion : atraccionesIncluidas) {
 					printWriter.println("- " + atraccion.imprimeAtraccion());
@@ -177,7 +177,7 @@ public class Itinerario {
 					PromocionAxB promo2 = (PromocionAxB) promo;
 					printWriter.println(" -Atracciones Gratis: ");
 					List<Atraccion> atraccionesGratis = new ArrayList<Atraccion>();
-					atraccionesGratis = promo2.getAtraccionesGratis();
+					atraccionesGratis = promo2.consultarAtraccionesGratis();
 
 					for (Atraccion atraccionGratis : atraccionesGratis) {
 						printWriter.println("- " + atraccionGratis.imprimeAtraccion());

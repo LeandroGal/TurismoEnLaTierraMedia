@@ -83,7 +83,7 @@ public class Ofertador {
 						&& usuario.consultarTiempo() >= promo.calculoTiempoTotal()
 						&& itinerario.puedeOfertarPromocion(promo)) {
 
-					System.out.println("Promocion: ");
+					System.out.println("Promocion: " + promo.nombrePromocion);
 
 					System.out.println("-Atracciones incluidas: ");
 					promo.imprimirAtracciones();

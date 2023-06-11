@@ -5,8 +5,8 @@ Promociones:
 Nombre Promocion: Pack Paisaje
 Duracion: 3.0
 Atracciones incluidas: 
-- [nombre=Minas Tirith, duracionEnHs=1.5, tipoAtraccion=Paisaje]
-- [nombre=Bosque de Fangorn, duracionEnHs=1.5, tipoAtraccion=Paisaje]
+- [nombre = Minas Tirith, duracionEnHs = 1.5, tipoAtraccion = Paisaje]
+- [nombre = Bosque de Fangorn, duracionEnHs = 1.5, tipoAtraccion = Paisaje]
 Atracciones: 
 -------------
 Precio final a abonar: 36 monedas de oro

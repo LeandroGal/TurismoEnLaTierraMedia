@@ -1,0 +1,7 @@
+Nombre|Tipo de Promo (1=Porcentual, 2=Absolutas, 3=AxB)|Atracciones incluidas|Porcentaje de descuento|Precio total en monedas de oro|Atracciones gratis
+Pack Aventura|1|Mordor,Moria|25||
+Pack Super Aventura|2|Lothlorien,Bosque Negro,Mordor||34|
+Pack Banquete|2|Numenor,Delagua,Hobbiton||49|
+Pack Super Banquete|3|Delagua,Hobbiton|||Rivendel
+Pack Paisaje|1|Minas Tirith,Bosque de Fangorn|28||
+Pack Super Paisaje|3|Abismo de Helm|||Minas Tirith,Bosque de Fangorn,Erebor

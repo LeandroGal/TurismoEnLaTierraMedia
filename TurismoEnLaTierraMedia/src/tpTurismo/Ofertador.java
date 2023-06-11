@@ -8,11 +8,6 @@ import java.util.Scanner;
 
 public class Ofertador {
 
-//	private float precioFinal;
-//	private float precioInicial;
-//	private float tiempo;
-//	private List<Atraccion> atracciones;
-
 	public static void main(String[] args) throws IOException {
 
 		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
@@ -31,7 +26,6 @@ public class Ofertador {
 
 		for (Usuario usuario : listaUsuarios) {
 			System.out.println(usuario);
-			// String preferida = usuario.consultarAtraccionPreferida();
 
 			List<Atraccion> atraccionesPreferidas = new ArrayList<Atraccion>();
 			List<Atraccion> atraccionesRestantes = new ArrayList<Atraccion>();
@@ -46,7 +40,7 @@ public class Ofertador {
 			Collections.sort(atraccionesPreferidas, new AtraccionComparator());
 			Collections.sort(atraccionesRestantes, new AtraccionComparator());
 
-			// PAQUETES
+			// Promociones
 			List<Promocion> promocionesPreferidas = new ArrayList<Promocion>();
 			List<Promocion> promocionesRestantes = new ArrayList<Promocion>();
 
@@ -81,7 +75,6 @@ public class Ofertador {
 			for (Promocion promo : promocionesPreferidas) {
 
 				int indicePromoAOfertar = listaPromociones.indexOf(promo);
-				// listaPromociones.get(indicePromoAOfertar);
 
 				if (listaPromociones.get(indicePromoAOfertar).tieneCupo()
 						&& usuario.consultarPresupuesto() >= promo.calculoPrecioFinal()
@@ -161,8 +154,8 @@ public class Ofertador {
 						opcion = scanner.next();
 					}
 
-					if (opcion.equalsIgnoreCase("S")) { // si acepto agrego al itinerario, actualizo cupo de la
-														// atraccion
+					if (opcion.equalsIgnoreCase("S")) { // Si acepto agrego al itinerario, actualizo cupo de la atraccion
+
 						System.out.println("Atraccion Aceptada");
 
 						itinerario.agregarAtraccion(atraccion);
@@ -170,10 +163,10 @@ public class Ofertador {
 						usuario.actualizarPresupuestoYTiempo(atraccion.consultarCosto(),
 								atraccion.consultarDuracionEnHs());
 
-						// actualizo cupo de la lista original de atracciones
+						// Actualizo cupo de la lista original de atracciones
 						listaAtracciones.get(indiceAtraccionAOfertar).actualizarCupo();
 
-						// actualizo cupo de las promociones que contengan la atraccion
+						// Actualizo cupo de las promociones que contengan la atraccion
 						for (Promocion promo : listaPromociones) {
 							if (promo.atraccionesIncluidas.contains(atraccion)) {
 
@@ -198,7 +191,6 @@ public class Ofertador {
 			for (Promocion promo : promocionesRestantes) {
 
 				int indicePromoAOfertar = listaPromociones.indexOf(promo);
-				// listaPromociones.get(indicePromoAOfertar);
 
 				if (listaPromociones.get(indicePromoAOfertar).tieneCupo()
 						&& usuario.consultarPresupuesto() >= promo.calculoPrecioFinal()
@@ -224,19 +216,19 @@ public class Ofertador {
 						opcion = scanner.next();
 					}
 
-					if (opcion.equalsIgnoreCase("S")) { // si acepto agrego al itinerario, actualizo cupo de la promo
+					if (opcion.equalsIgnoreCase("S")) { // Si acepto agrego al itinerario, actualizo cupo de la promocion
 						System.out.println("Promocion Aceptada");
 
 						itinerario.agregarPromocion(promo);
 						usuario.actualizarPresupuestoYTiempo(promo.consultarPrecioFinal(),
 								promo.consultarTiempoTotal());
-						// actualizo cupo de promo y atracciones
+						// Actualizo cupo de promocion y atracciones
 						listaPromociones.get(indicePromoAOfertar).actualizarCupo();
 
 						List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
 						atraccionesIncluidas = listaPromociones.get(indicePromoAOfertar).getAtraccionesIncluidas();
 
-						// actualiza cupo de las atracciones que se anoto
+						// Actualizo cupo de las atracciones que se anoto
 						for (Atraccion atraccion : atraccionesIncluidas) {
 							int indice = listaAtracciones.indexOf(atraccion);
 							listaAtracciones.get(indice).actualizarCupo();
@@ -279,8 +271,8 @@ public class Ofertador {
 						opcion = scanner.next();
 					}
 
-					if (opcion.equalsIgnoreCase("S")) { // si acepto agrego al itinerario, actualizo cupo de la
-														// atraccion
+					if (opcion.equalsIgnoreCase("S")) { // Si acepto agrego al itinerario, actualizo cupo de la atraccion
+
 						System.out.println("Atraccion Aceptada");
 
 						itinerario.agregarAtraccion(atraccion);
@@ -288,10 +280,10 @@ public class Ofertador {
 						usuario.actualizarPresupuestoYTiempo(atraccion.consultarCosto(),
 								atraccion.consultarDuracionEnHs());
 
-						// actualizo cupo de la lista original de atracciones
+						// Actualizo cupo de la lista original de atracciones
 						listaAtracciones.get(indiceAtraccionAOfertar).actualizarCupo();
 
-						// actualizo cupo de las promociones que contengan la atraccion
+						// Actualizo cupo de las promociones que contengan la atraccion
 						for (Promocion promo : listaPromociones) {
 							if (promo.atraccionesIncluidas.contains(atraccion)) {
 
@@ -315,7 +307,6 @@ public class Ofertador {
 			itinerario.mostrarItinerario();
 			itinerario.grabarItinerario(usuario);
 
-			// break; // corta en el primero
 		}
 		scanner.close();
 	}

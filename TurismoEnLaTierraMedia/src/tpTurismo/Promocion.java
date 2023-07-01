@@ -20,7 +20,7 @@ public abstract class Promocion {
 	private int calculoPrecioInicial() {
 		int precio = 0;
 		for (Atraccion elem : this.atraccionesIncluidas) {
-			precio += elem.consultarCosto();
+			precio += elem.getCosto();
 		}
 		return precio;
 	}
@@ -28,7 +28,7 @@ public abstract class Promocion {
 	protected float calculoTiempoTotal() {
 		float tiempo = 0;
 		for (Atraccion elem : this.atraccionesIncluidas) {
-			tiempo += elem.consultarDuracionEnHs();
+			tiempo += elem.getDuracion();
 		}
 		return tiempo;
 	}
@@ -64,19 +64,19 @@ public abstract class Promocion {
 	
 
 	public String consultarTipoAtraccion() {
-		return this.consultarAtraccionesIncluidas().get(0).consultarTipoAtraccion();
+		return this.consultarAtraccionesIncluidas().get(0).getTipoAtraccion();
 	}
 
 	public boolean tieneCupo() {
 		for (Atraccion atraccion : this.atraccionesIncluidas) {
-			if (atraccion.consultarCupo() == 0) {
+			if (atraccion.getCupo() == 0) {
 				return false;
 			}
 		}
 
 		if (this instanceof PromocionAxB) {
 			for (Atraccion atraccion : ((PromocionAxB) this).atraccionesGratis) {
-				if (atraccion.consultarCupo() == 0) {
+				if (atraccion.getCupo() == 0) {
 					return false;
 				}
 			}
@@ -87,14 +87,14 @@ public abstract class Promocion {
 
 	public void imprimirAtracciones() {
 		for (Atraccion atraccion : this.atraccionesIncluidas) {
-			System.out.print(atraccion.consultarNombreAtraccion() + ", ");
+			System.out.print(atraccion.getNombreAtraccion() + ", ");
 		}
 
 	}
 
 	public boolean actualizarCupo() {
 		for (Atraccion atraccion : this.atraccionesIncluidas) {
-			if (atraccion.consultarCupo() == 0) {
+			if (atraccion.getCupo() == 0) {
 				return false;
 			}
 			atraccion.actualizarCupo();

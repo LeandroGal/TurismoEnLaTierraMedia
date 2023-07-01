@@ -20,20 +20,7 @@ public class Itinerario {
 		this.totalAPagar = 0;
 		this.tiempoTotal = 0;
 	}
-
-	public void agregarPromocion(Promocion promo) {
-		this.promocionesAceptadas.add(promo);
-		this.totalAPagar += promo.calculoPrecioFinal();
-		this.tiempoTotal += promo.consultarTiempoTotal();
-
-	}
-
-	public void agregarAtraccion(Atraccion atraccion) {
-		this.atraccionesAceptadas.add(atraccion);
-		this.totalAPagar += atraccion.consultarCosto();
-		this.tiempoTotal += atraccion.consultarDuracionEnHs();
-	}
-
+	
 	public List<Promocion> getPromocionesAceptadas() {
 		return promocionesAceptadas;
 	}
@@ -105,12 +92,27 @@ public class Itinerario {
 		return true;
 	}
 
+	public void agregarPromocion(Promocion promo) {
+		this.promocionesAceptadas.add(promo);
+		this.totalAPagar += promo.calculoPrecioFinal();
+		this.tiempoTotal += promo.consultarTiempoTotal();
+
+	}
+
+	public void agregarAtraccion(Atraccion atraccion) {
+		this.atraccionesAceptadas.add(atraccion);
+		this.totalAPagar += atraccion.getCosto();
+		this.tiempoTotal += atraccion.getDuracion();
+	}
+	
+
 	public void mostrarItinerario() {
 		System.out.println();
 		System.out.println("Itinerario final");
-		System.out.println("------------------");
+		System.out.println("---------------------------------------------------------------------");
+		System.out.println();
 		System.out.println("Promociones: ");
-		System.out.println("-------------");
+		System.out.println("------------");
 		for (Promocion promo : this.promocionesAceptadas) {
 			System.out.println("Nombre Promocion: " + promo.consultarNombrePromocion());
 			System.out.println("Duracion: " + promo.calculoTiempoTotal());
@@ -137,13 +139,16 @@ public class Itinerario {
 
 		}
 
+		System.out.println();
 		System.out.println("Atracciones: ");
-		System.out.println("-------------");
+		System.out.println("------------");
 		for (Atraccion atraccion : this.atraccionesAceptadas) {
 			System.out.println("- " + atraccion.imprimeAtraccion());
 		}
 		System.out.println("Precio final a abonar: " + this.totalAPagar + " monedas de oro");
 		System.out.println("Duracion total del recorrido: " + this.tiempoTotal + " hs");
+		System.out.println();
+		System.out.println("---------------------------------------------------------------------");
 
 	}
 
@@ -157,10 +162,15 @@ public class Itinerario {
 			printWriter = new PrintWriter(file);
 
 			printWriter.println("Itinerario final");
-			printWriter.println("------------------");
+			printWriter.println("---------------------------------------------------------------------");
+			
+			printWriter.println();
 			printWriter.println("Usuario: " + usuario.consultarNombre());
-
+			printWriter.println("---------------------------------------------------------------------");
+			
+			printWriter.println();
 			printWriter.println("Promociones:");
+			printWriter.println("------------");
 			for (Promocion promo : this.promocionesAceptadas) {
 				printWriter.println("Nombre Promocion: " + promo.consultarNombrePromocion());
 				printWriter.println("Duracion: " + promo.calculoTiempoTotal());
@@ -186,9 +196,10 @@ public class Itinerario {
 				}
 
 			}
-
+			
+			printWriter.println();
 			printWriter.println("Atracciones: ");
-			printWriter.println("-------------");
+			printWriter.println("------------");
 			for (Atraccion atraccion : this.atraccionesAceptadas) {
 				printWriter.println("- " + atraccion.imprimeAtraccion());
 			}

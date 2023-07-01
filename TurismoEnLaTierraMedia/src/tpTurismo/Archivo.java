@@ -114,7 +114,7 @@ public class Archivo {
 
 				for (String nombre : atracciones) {
 					for (Atraccion atraccion : listaAtracciones) {
-						if (nombre.equals(atraccion.consultarNombreAtraccion())) {
+						if (nombre.equals(atraccion.getNombreAtraccion())) {
 							atraccionesIncluidas.add(atraccion);
 							break;
 						}
@@ -124,23 +124,23 @@ public class Archivo {
 
 				switch (tipo) {
 
-				case 1: // porcental
+				case 1: // Promoción Porcental
 					PromocionPorcentual promoP = new PromocionPorcentual(nombrePromocion, atraccionesIncluidas, tipo,
 							Integer.parseInt(porcentaje));
 					promociones.add(promoP);
 					break;
-				case 2: // absoluta
+				case 2: // Promoción Absoluta
 					PromocionAbsoluta promoA = new PromocionAbsoluta(nombrePromocion, atraccionesIncluidas, tipo,
 							Integer.parseInt(precio));
 					promociones.add(promoA);
 					break;
-				case 3: // AxB
+				case 3: // Promoción AxB
 
 					List<Atraccion> listaAtraccionesGratis = new ArrayList<Atraccion>();
 
 					for (String nombre : atraccionesGratis) {
 						for (Atraccion atraccion : listaAtracciones) {
-							if (nombre.equals(atraccion.consultarNombreAtraccion())) {
+							if (nombre.equals(atraccion.getNombreAtraccion())) {
 								listaAtraccionesGratis.add(atraccion);
 							}
 						}

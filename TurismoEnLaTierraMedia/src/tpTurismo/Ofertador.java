@@ -48,23 +48,22 @@ public class Ofertador {
 
 			int indiceAtraccionAOfertar = listaAtracciones.indexOf(atraccion);
 
-			if (listaAtracciones.get(indiceAtraccionAOfertar).consultarCupo() > 0
-					&& usuario.consultarPresupuesto() >= atraccion.consultarCosto()
-					&& usuario.consultarTiempo() >= atraccion.consultarDuracionEnHs()
+			if (listaAtracciones.get(indiceAtraccionAOfertar).getCupo() > 0
+					&& usuario.consultarPresupuesto() >= atraccion.getCosto()
+					&& usuario.consultarTiempo() >= atraccion.getDuracion()
 					&& itinerario.puedeOfertarAtraccion(atraccion)) {
 
-				System.out.println("Atraccion");
-				System.out.println("Nombre: " + atraccion.consultarNombreAtraccion());
-				System.out.println("-Duracion: " + atraccion.consultarDuracionEnHs());
-				System.out.println("-Precio: " + atraccion.consultarCosto());
+				System.out.println("Atraccion: " + atraccion.getNombreAtraccion());
+				System.out.println("-Duracion: " + atraccion.getDuracion() + "hs");
+				System.out.println("-Precio: " + atraccion.getCosto() + " monedas de oro");
 
-				System.out.println("Acepta la atraccion? (S/N )");
+				System.out.println("¿Acepta la atraccion? (S/N)");
 
 				String opcion = scanner.next();
 
 				while (!opcion.equalsIgnoreCase("S") && !opcion.equalsIgnoreCase("N")) {
 					System.out.println("Opción inválida. Por favor, ingresa 'S' o 'N'.");
-					System.out.print("¿Acepta sugerencia? (S/N): ");
+					System.out.print("¿Acepta la atraccion? (S/N)");
 					opcion = scanner.next();
 				}
 
@@ -75,7 +74,7 @@ public class Ofertador {
 
 					itinerario.agregarAtraccion(atraccion);
 
-					usuario.actualizarPresupuestoYTiempo(atraccion.consultarCosto(), atraccion.consultarDuracionEnHs());
+					usuario.actualizarPresupuestoYTiempo(atraccion.getCosto(), atraccion.getDuracion());
 
 					// Actualizo cupo de la lista original de atracciones
 					listaAtracciones.get(indiceAtraccionAOfertar).actualizarCupo();
@@ -97,7 +96,7 @@ public class Ofertador {
 				continue;
 			}
 
-			System.out.println("-----------------------------------------------------------------");
+			System.out.println("---------------------------------------------------------------------");
 		}
 	}
 
@@ -118,17 +117,17 @@ public class Ofertador {
 				System.out.println("-Atracciones incluidas: ");
 				promo.imprimirAtracciones();
 				System.out.println();
-				System.out.println("-Duracion: " + promo.consultarTiempoTotal() + " Hs");
-				System.out.println("Precio original: " + promo.consultarPrecioInicial());
-				System.out.println("Precio final: " + promo.consultarPrecioFinal());
+				System.out.println("-Duracion: " + promo.consultarTiempoTotal() + "hs");
+				System.out.println("Precio original: " + promo.consultarPrecioInicial() + " monedas de oro");
+				System.out.println("Precio final: " + promo.consultarPrecioFinal() + " monedas de oro");
 
-				System.out.println("Acepta la promocion? (S/N )");
+				System.out.println("¿Acepta la promocion? (S/N)");
 
 				String opcion = scanner.next();
 
 				while (!opcion.equalsIgnoreCase("S") && !opcion.equalsIgnoreCase("N")) {
 					System.out.println("Opción inválida. Por favor, ingresa 'S' o 'N'.");
-					System.out.print("¿Acepta sugerencia? (S/N): ");
+					System.out.print("¿Acepta la promocion? (S/N)");
 					opcion = scanner.next();
 				}
 
@@ -156,7 +155,7 @@ public class Ofertador {
 			} else {
 				continue;
 			}
-			System.out.println("-----------------------------------------------------------------");
+			System.out.println("---------------------------------------------------------------------");
 
 		}
 	}
@@ -179,7 +178,7 @@ public class Ofertador {
 	private void generarAtraccionesPreferidasYRestantes(Usuario usuario, List<Atraccion> listaAtracciones,
 			List<Atraccion> atraccionesPreferidas, List<Atraccion> atraccionesRestantes) {
 		for (Atraccion atraccion : listaAtracciones) {
-			if (usuario.consultarAtraccionPreferida().equals(atraccion.consultarTipoAtraccion())) {
+			if (usuario.consultarAtraccionPreferida().equals(atraccion.getTipoAtraccion())) {
 				atraccionesPreferidas.add(atraccion);
 			} else {
 				atraccionesRestantes.add(atraccion);
@@ -195,8 +194,6 @@ public class Ofertador {
 
 		for (Usuario usuario : this.listaUsuarios) {
 			System.out.println();
-			System.out.println();
-			System.out.println(usuario);
 
 			atraccionesPreferidas = new ArrayList<Atraccion>();
 			atraccionesRestantes = new ArrayList<Atraccion>();
@@ -210,11 +207,15 @@ public class Ofertador {
 
 			Itinerario itinerario = new Itinerario();
 
-			System.out.println("Bienvenido/a a la Tierra Media");
-			System.out.println("-----------------------------------------------------------------");
+			System.out.println("---------------------------------------------------------------------");
+			System.out.println();
+			System.out.println("¡Bienvenido/a a la Tierra Media!");
+			System.out.println();
+			System.out.println("---------------------------------------------------------------------");
 
 			System.out.println("Nombre de Usuario: " + usuario.consultarNombre());
 			System.out.println();
+			System.out.println("---------------------------------------------------------------------");
 
 			ofertarPromociones(usuario, this.listaAtracciones, this.listaPromociones, promocionesPreferidas,
 					itinerario);

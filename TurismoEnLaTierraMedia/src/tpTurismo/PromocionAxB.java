@@ -23,7 +23,7 @@ public class PromocionAxB extends Promocion {
 	protected int calculoPrecioFinal() {
 		int precio = 0;
 		for (Atraccion atraccion : this.atraccionesIncluidas) {
-			precio += atraccion.consultarCosto();
+			precio += atraccion.getCosto();
 		}
 
 		return precio;
@@ -33,11 +33,11 @@ public class PromocionAxB extends Promocion {
 	protected float calculoTiempoTotal() {
 		float tiempo = 0;
 		for (Atraccion elem : this.atraccionesIncluidas) {
-			tiempo += elem.consultarDuracionEnHs();
+			tiempo += elem.getDuracion();
 		}
 
 		for (Atraccion elem2 : this.atraccionesGratis) {
-			tiempo += elem2.consultarDuracionEnHs();
+			tiempo += elem2.getDuracion();
 		}
 
 		return tiempo;
@@ -51,12 +51,12 @@ public class PromocionAxB extends Promocion {
 	@Override
 	public void imprimirAtracciones() {
 		for (Atraccion atraccion : this.atraccionesIncluidas) {
-			System.out.print(atraccion.consultarNombreAtraccion() + ", ");
+			System.out.print(atraccion.getNombreAtraccion() + ", ");
 		}
 		System.out.println();
 		System.out.println("Atracciones gratis: ");
 		for (Atraccion atraccion : this.atraccionesGratis) {
-			System.out.print(atraccion.consultarNombreAtraccion() + ", ");
+			System.out.print(atraccion.getNombreAtraccion() + ", ");
 		}
 
 	}

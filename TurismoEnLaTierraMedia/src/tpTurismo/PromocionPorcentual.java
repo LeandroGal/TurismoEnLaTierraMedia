@@ -19,7 +19,7 @@ public class PromocionPorcentual extends Promocion {
 		float precio = 0;
 
 		for (Atraccion atraccion : this.atraccionesIncluidas) {
-			precio += atraccion.consultarCosto();
+			precio += atraccion.getCosto();
 		}
 
 		return (int) (precio * (1 - (this.porcentaje / 100)));

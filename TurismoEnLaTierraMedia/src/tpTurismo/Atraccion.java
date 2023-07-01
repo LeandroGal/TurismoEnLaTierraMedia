@@ -4,16 +4,36 @@ public class Atraccion {
 
 	private String nombre;
 	private int costo;
-	private float duracionEnHs;
+	private float duracion;
 	private int cupoDisponible;
 	private String tipoAtraccion;
 
 	public Atraccion(String nombre, int costo, float duracionEnHs, int cupoDisponible, String tipoAtraccion) {
 		this.nombre = nombre;
 		this.costo = costo;
-		this.duracionEnHs = duracionEnHs;
+		this.duracion = duracionEnHs;
 		this.cupoDisponible = cupoDisponible;
 		this.tipoAtraccion = tipoAtraccion;
+	}
+
+	public int getCupo() {
+		return this.cupoDisponible;
+	}
+
+	public int getCosto() {
+		return this.costo;
+	}
+
+	public float getDuracion() {
+		return this.duracion;
+	}
+
+	public String getTipoAtraccion() {
+		return this.tipoAtraccion;
+	}
+
+	public String getNombreAtraccion() {
+		return this.nombre;
 	}
 
 	public boolean actualizarCupo() {
@@ -24,34 +44,14 @@ public class Atraccion {
 		return false;
 	}
 
-	public int consultarCupo() {
-		return this.cupoDisponible;
-	}
-
-	public int consultarCosto() {
-		return this.costo;
-	}
-
-	public float consultarDuracionEnHs() {
-		return this.duracionEnHs;
-	}
-
-	public String consultarTipoAtraccion() {
-		return tipoAtraccion;
-	}
-
-	public String consultarNombreAtraccion() {
-		return this.nombre;
-	}
-
 	@Override
 	public String toString() {
-		return "Atraccion [nombre = " + nombre + ", costo = " + costo + ", duracionEnHs = " + duracionEnHs
+		return "Atraccion [nombre = " + nombre + ", costo = " + costo + ", duracionEnHs = " + duracion
 				+ ", cupoDisponible = " + cupoDisponible + ", tipoAtraccion = " + tipoAtraccion + "]";
 	}
 
 	public String imprimeAtraccion() {
-		return "[nombre = " + nombre + ", duracionEnHs = " + duracionEnHs + ", tipoAtraccion = " + tipoAtraccion + "]";
+		return "[nombre = " + nombre + ", duracionEnHs = " + duracion + ", tipoAtraccion = " + tipoAtraccion + "]";
 	}
 
 }

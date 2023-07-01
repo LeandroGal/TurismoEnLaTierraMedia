@@ -2,13 +2,10 @@ Itinerario final
 ------------------
 Usuario: Sam Gamyi
 Promociones:
-Nombre Promocion: Pack Banquete
-Duracion: 6.0
-Atracciones incluidas: 
-- [nombre = Numenor, duracionEnHs = 1.0, tipoAtraccion = Banquete]
-- [nombre = Delagua, duracionEnHs = 1.5, tipoAtraccion = Banquete]
-- [nombre = Hobbiton, duracionEnHs = 3.5, tipoAtraccion = Banquete]
 Atracciones: 
 -------------
-Precio final a abonar: 49 monedas de oro
+- [nombre = Delagua, duracionEnHs = 1.5, tipoAtraccion = Banquete]
+- [nombre = Hobbiton, duracionEnHs = 3.5, tipoAtraccion = Banquete]
+- [nombre = Mordor, duracionEnHs = 1.0, tipoAtraccion = Aventura]
+Precio final a abonar: 58 monedas de oro
 Duracion total del recorrido: 6.0 hs

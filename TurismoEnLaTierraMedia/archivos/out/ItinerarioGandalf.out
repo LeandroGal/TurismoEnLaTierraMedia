@@ -2,15 +2,10 @@ Itinerario final
 ------------------
 Usuario: Gandalf
 Promociones:
-Nombre Promocion: Pack Super Paisaje
-Duracion: 6.0
-Atracciones incluidas: 
-- [nombre = Abismo de Helm, duracionEnHs = 2.0, tipoAtraccion = Paisaje]
- -Atracciones Gratis: 
-- [nombre = Minas Tirith, duracionEnHs = 1.5, tipoAtraccion = Paisaje]
-- [nombre = Bosque de Fangorn, duracionEnHs = 1.5, tipoAtraccion = Paisaje]
-- [nombre = Erebor, duracionEnHs = 1.0, tipoAtraccion = Paisaje]
 Atracciones: 
 -------------
-Precio final a abonar: 89 monedas de oro
+- [nombre = Abismo de Helm, duracionEnHs = 2.0, tipoAtraccion = Paisaje]
+- [nombre = Bosque de Fangorn, duracionEnHs = 1.5, tipoAtraccion = Paisaje]
+- [nombre = Moria, duracionEnHs = 2.5, tipoAtraccion = Aventura]
+Precio final a abonar: 132 monedas de oro
 Duracion total del recorrido: 6.0 hs

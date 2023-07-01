@@ -9,60 +9,14 @@ import java.util.Scanner;
 
 public class Archivo {
 
-	public Archivo() {
-	}
-
-	public static void main(String[] args) throws IOException {
-
-		try {
-			List<Usuario> usuarios = leerArchivoUsuarios();
-
-			for (Usuario usuario : usuarios) {
-				System.out.println(usuario);
-			}
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-		System.out.println();
-
-		List<Atraccion> atracciones=new ArrayList<Atraccion>();
-		try {
-			atracciones = leerArchivoAtracciones();
-
-			for (Atraccion atraccion : atracciones) {
-				System.out.println(atraccion);
-			}
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-		
-		System.out.println();
-		
-		try {
-			List<Promocion> promociones = leerArchivoPromociones(atracciones);
-
-			for (Promocion promo : promociones) {
-				System.out.println(promo);
-			}
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-	}
+	private static File file;
+	private static Scanner scanner = null;
 
 	public static List<Usuario> leerArchivoUsuarios() throws IOException {
-		Scanner scanner = null;
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 
 		try {
-			File file = new File("archivos/in/Usuarios.in");
+			file = new File("archivos/in/Usuarios.in");
 
 			scanner = new Scanner(file);
 
@@ -94,7 +48,6 @@ public class Archivo {
 	}
 
 	public static List<Atraccion> leerArchivoAtracciones() throws IOException {
-		Scanner scanner = null;
 		List<Atraccion> atracciones = new ArrayList<Atraccion>();
 
 		try {
@@ -132,12 +85,11 @@ public class Archivo {
 	}
 
 	public static List<Promocion> leerArchivoPromociones(List<Atraccion> listaAtracciones) throws IOException {
-		Scanner scanner = null;
 		List<Promocion> promociones = new ArrayList<Promocion>();
 
 		try {
-			File file = new File("archivos/in/Promociones.in");
-			//File file = new File("archivos/in/promosgratisPrueba");
+			file = new File("archivos/in/Promociones.in");
+
 			scanner = new Scanner(file);
 
 			scanner.useLocale(Locale.ENGLISH);
@@ -147,16 +99,16 @@ public class Archivo {
 			while (scanner.hasNextLine()) {
 
 				linea = scanner.nextLine();
-				String[] partes = linea.split("\\|",-1);
+				String[] partes = linea.split("\\|", -1);
 
 				String nombrePromocion = partes[0];
 				int tipo = Integer.parseInt(partes[1]);
 				String lineaAtracciones = partes[2];
 				String[] atracciones = lineaAtracciones.split(",");
-				String porcentaje = partes[3]; //hay que castearlo adelante
-				String precio = partes[4]; //idem
+				String porcentaje = partes[3]; // hay que castearlo adelante
+				String precio = partes[4]; // idem
 				String lineaAtraccionesGratis = partes[5];
-				String[] atraccionesGratis = lineaAtraccionesGratis.split(",",-1);
+				String[] atraccionesGratis = lineaAtraccionesGratis.split(",", -1);
 
 				List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
 
@@ -166,7 +118,7 @@ public class Archivo {
 							atraccionesIncluidas.add(atraccion);
 							break;
 						}
-						
+
 					}
 				}
 

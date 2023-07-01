@@ -42,29 +42,29 @@ public abstract class Promocion {
 				+ "]";
 	}
 
-	public float consultarTiempoTotal() {
+	public float getTiempoTotal() {
 		return this.calculoTiempoTotal();
 	}
 
-	public int consultarPrecioFinal() {
+	public int getPrecioFinal() {
 		return this.calculoPrecioFinal();
 	}
 	
-	public List<Atraccion> consultarAtraccionesIncluidas() {
+	public List<Atraccion> getAtraccionesIncluidas() {
 		return atraccionesIncluidas;
 	}
 	
-	public String consultarNombrePromocion() {
+	public String getNombrePromocion() {
 		return this.nombrePromocion;
 	}
 	
-	public int consultarPrecioInicial() {
+	public int getPrecioInicial() {
 		return this.precioInicial;
 	}
 	
 
-	public String consultarTipoAtraccion() {
-		return this.consultarAtraccionesIncluidas().get(0).getTipoAtraccion();
+	public String getTipoAtraccion() {
+		return this.getAtraccionesIncluidas().get(0).getTipoAtraccion();
 	}
 
 	public boolean tieneCupo() {

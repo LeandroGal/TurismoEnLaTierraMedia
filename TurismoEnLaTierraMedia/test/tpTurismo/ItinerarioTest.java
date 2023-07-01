@@ -171,8 +171,8 @@ public class ItinerarioTest {
 		itinerario.grabarItinerario(usuario);
 		
 		 try {
-	            byte[] f1 = Files.readAllBytes(Paths.get("archivos/out_esperado/Itinerario" + usuario.consultarNombre() + ".out"));
-	            byte[] f2 = Files.readAllBytes(Paths.get("archivos/out/Itinerario" + usuario.consultarNombre() + ".out"));
+	            byte[] f1 = Files.readAllBytes(Paths.get("archivos/out_esperado/Itinerario" + usuario.getNombreApellido() + ".out"));
+	            byte[] f2 = Files.readAllBytes(Paths.get("archivos/out/Itinerario" + usuario.getNombreApellido() + ".out"));
 	            Assert.assertArrayEquals(f1, f2);
 	        } catch (IOException e) {
 	            e.printStackTrace(); //Muestra un poco más de info si falla el test

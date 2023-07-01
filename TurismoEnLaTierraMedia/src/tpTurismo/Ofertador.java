@@ -49,8 +49,8 @@ public class Ofertador {
 			int indiceAtraccionAOfertar = listaAtracciones.indexOf(atraccion);
 
 			if (listaAtracciones.get(indiceAtraccionAOfertar).getCupo() > 0
-					&& usuario.consultarPresupuesto() >= atraccion.getCosto()
-					&& usuario.consultarTiempo() >= atraccion.getDuracion()
+					&& usuario.getPresupuesto() >= atraccion.getCosto()
+					&& usuario.getTiempoDisponible() >= atraccion.getDuracion()
 					&& itinerario.puedeOfertarAtraccion(atraccion)) {
 
 				System.out.println("Atraccion: " + atraccion.getNombreAtraccion());
@@ -108,8 +108,8 @@ public class Ofertador {
 			int indicePromoAOfertar = listaPromociones.indexOf(promo);
 
 			if (listaPromociones.get(indicePromoAOfertar).tieneCupo()
-					&& usuario.consultarPresupuesto() >= promo.calculoPrecioFinal()
-					&& usuario.consultarTiempo() >= promo.calculoTiempoTotal()
+					&& usuario.getPresupuesto() >= promo.calculoPrecioFinal()
+					&& usuario.getTiempoDisponible() >= promo.calculoTiempoTotal()
 					&& itinerario.puedeOfertarPromocion(promo)) {
 
 				System.out.println("Promocion: " + promo.nombrePromocion);
@@ -117,9 +117,9 @@ public class Ofertador {
 				System.out.println("-Atracciones incluidas: ");
 				promo.imprimirAtracciones();
 				System.out.println();
-				System.out.println("-Duracion: " + promo.consultarTiempoTotal() + "hs");
-				System.out.println("Precio original: " + promo.consultarPrecioInicial() + " monedas de oro");
-				System.out.println("Precio final: " + promo.consultarPrecioFinal() + " monedas de oro");
+				System.out.println("-Duracion: " + promo.getTiempoTotal() + "hs");
+				System.out.println("Precio original: " + promo.getPrecioInicial() + " monedas de oro");
+				System.out.println("Precio final: " + promo.getPrecioFinal() + " monedas de oro");
 
 				System.out.println("¿Acepta la promocion? (S/N)");
 
@@ -135,12 +135,12 @@ public class Ofertador {
 					System.out.println("Promocion Aceptada");
 
 					itinerario.agregarPromocion(promo);
-					usuario.actualizarPresupuestoYTiempo(promo.consultarPrecioFinal(), promo.consultarTiempoTotal());
+					usuario.actualizarPresupuestoYTiempo(promo.getPrecioFinal(), promo.getTiempoTotal());
 					// actualizo cupo de promo y atracciones
 					listaPromociones.get(indicePromoAOfertar).actualizarCupo();
 
 					List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-					atraccionesIncluidas = listaPromociones.get(indicePromoAOfertar).consultarAtraccionesIncluidas();
+					atraccionesIncluidas = listaPromociones.get(indicePromoAOfertar).getAtraccionesIncluidas();
 
 					// actualiza cupo de las atracciones que se anoto
 					for (Atraccion atraccion : atraccionesIncluidas) {
@@ -163,7 +163,7 @@ public class Ofertador {
 	private void generarPromosPreferidasYRestantes(Usuario usuario, List<Promocion> listaPromociones,
 			List<Promocion> promocionesPreferidas, List<Promocion> promocionesRestantes) {
 		for (Promocion promocion : listaPromociones) {
-			if (usuario.consultarAtraccionPreferida().equals(promocion.consultarTipoAtraccion())) {
+			if (usuario.getTipoAtraccionPreferida().equals(promocion.getTipoAtraccion())) {
 
 				promocionesPreferidas.add(promocion);
 			} else {
@@ -178,7 +178,7 @@ public class Ofertador {
 	private void generarAtraccionesPreferidasYRestantes(Usuario usuario, List<Atraccion> listaAtracciones,
 			List<Atraccion> atraccionesPreferidas, List<Atraccion> atraccionesRestantes) {
 		for (Atraccion atraccion : listaAtracciones) {
-			if (usuario.consultarAtraccionPreferida().equals(atraccion.getTipoAtraccion())) {
+			if (usuario.getTipoAtraccionPreferida().equals(atraccion.getTipoAtraccion())) {
 				atraccionesPreferidas.add(atraccion);
 			} else {
 				atraccionesRestantes.add(atraccion);
@@ -213,7 +213,7 @@ public class Ofertador {
 			System.out.println();
 			System.out.println("---------------------------------------------------------------------");
 
-			System.out.println("Nombre de Usuario: " + usuario.consultarNombre());
+			System.out.println("Nombre de Usuario: " + usuario.getNombreApellido());
 			System.out.println();
 			System.out.println("---------------------------------------------------------------------");
 

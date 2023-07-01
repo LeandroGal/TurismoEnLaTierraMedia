@@ -5,37 +5,37 @@ public class Usuario {
 	private String nombreApellido;
 	private String tipoAtraccionPreferida;
 	private int presupuesto;
-	private float horasDisponibles;
+	private float tiempoDisponible;
 
 	public Usuario(String nombreApellido, String atraccionPreferida, int presupuesto, float horasDisponibles) {
 		this.nombreApellido = nombreApellido;
 		this.tipoAtraccionPreferida = atraccionPreferida;
 		this.presupuesto = presupuesto;
-		this.horasDisponibles = horasDisponibles;
+		this.tiempoDisponible = horasDisponibles;
 	}
 
-	public String consultarNombre() {
+	public String getNombreApellido() {
 		return this.nombreApellido;
 	}
 	
-	public String consultarAtraccionPreferida() {
+	public String getTipoAtraccionPreferida() {
 		return this.tipoAtraccionPreferida;
 	}
 	
-	public int consultarPresupuesto() {
+	public int getPresupuesto() {
 		return this.presupuesto;
 	}
 
-	public float consultarTiempo() {
-		return this.horasDisponibles;
+	public float getTiempoDisponible() {
+		return this.tiempoDisponible;
 	}
 	
 
 	public boolean actualizarPresupuestoYTiempo(int precio, float tiempo) {
 
-		if (this.presupuesto >= precio && this.horasDisponibles >= tiempo) {
+		if (this.presupuesto >= precio && this.tiempoDisponible >= tiempo) {
 			this.presupuesto -= precio;
-			this.horasDisponibles -= tiempo;
+			this.tiempoDisponible -= tiempo;
 			return true;
 		}
 		return false;
@@ -44,7 +44,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [nombreApellido = " + nombreApellido + ", tipoAtraccionPreferida = " + tipoAtraccionPreferida
-				+ ", presupuesto = " + presupuesto + ", horasDisponibles = " + horasDisponibles + "]";
+				+ ", presupuesto = " + presupuesto + ", horasDisponibles = " + tiempoDisponible + "]";
 	}
-
+	
 }

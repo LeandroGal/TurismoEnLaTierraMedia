@@ -15,7 +15,7 @@ public class PromocionAxB extends Promocion {
 
 	}
 
-	public List<Atraccion> consultarAtraccionesGratis() {
+	public List<Atraccion> getAtraccionesGratis() {
 		return this.atraccionesGratis;
 	}
 

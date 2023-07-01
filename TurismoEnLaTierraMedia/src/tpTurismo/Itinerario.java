@@ -40,7 +40,7 @@ public class Itinerario {
 	public boolean puedeOfertarPromocion(Promocion promo) {
 
 		List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-		atraccionesIncluidas = promo.consultarAtraccionesIncluidas();
+		atraccionesIncluidas = promo.getAtraccionesIncluidas();
 
 		for (Atraccion atraccionIncluida : atraccionesIncluidas) {
 			if (this.atraccionesAceptadas.contains(atraccionIncluida)) {
@@ -50,7 +50,7 @@ public class Itinerario {
 
 		if (promo instanceof PromocionAxB) {
 			List<Atraccion> atraccionesGratisIncluidas = new ArrayList<Atraccion>();
-			atraccionesGratisIncluidas = ((PromocionAxB) promo).consultarAtraccionesGratis();
+			atraccionesGratisIncluidas = ((PromocionAxB) promo).getAtraccionesGratis();
 
 			for (Atraccion atraccionGratis : atraccionesGratisIncluidas) {
 				if (this.atraccionesAceptadas.contains(atraccionGratis)) {
@@ -62,7 +62,7 @@ public class Itinerario {
 
 		List<Atraccion> atraccionesPromoItinerario = new ArrayList<Atraccion>();
 		for (Promocion promocionAcept : this.promocionesAceptadas) {
-			atraccionesPromoItinerario = promocionAcept.consultarAtraccionesIncluidas();
+			atraccionesPromoItinerario = promocionAcept.getAtraccionesIncluidas();
 
 			for (Atraccion atraccionIncluida : atraccionesIncluidas) {
 				if (atraccionesPromoItinerario.contains(atraccionIncluida)) {
@@ -83,7 +83,7 @@ public class Itinerario {
 		List<Atraccion> atraccionesEnPromo = new ArrayList<Atraccion>();
 		for (Promocion promocionAceptada : this.promocionesAceptadas) {
 
-			atraccionesEnPromo = promocionAceptada.consultarAtraccionesIncluidas();
+			atraccionesEnPromo = promocionAceptada.getAtraccionesIncluidas();
 			if (atraccionesEnPromo.contains(atraccion)) {
 				return false;
 			}
@@ -95,7 +95,7 @@ public class Itinerario {
 	public void agregarPromocion(Promocion promo) {
 		this.promocionesAceptadas.add(promo);
 		this.totalAPagar += promo.calculoPrecioFinal();
-		this.tiempoTotal += promo.consultarTiempoTotal();
+		this.tiempoTotal += promo.getTiempoTotal();
 
 	}
 
@@ -114,12 +114,12 @@ public class Itinerario {
 		System.out.println("Promociones: ");
 		System.out.println("------------");
 		for (Promocion promo : this.promocionesAceptadas) {
-			System.out.println("Nombre Promocion: " + promo.consultarNombrePromocion());
+			System.out.println("Nombre Promocion: " + promo.getNombrePromocion());
 			System.out.println("Duracion: " + promo.calculoTiempoTotal());
 			System.out.println("Atracciones incluidas: ");
 
 			List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-			atraccionesIncluidas = promo.consultarAtraccionesIncluidas();
+			atraccionesIncluidas = promo.getAtraccionesIncluidas();
 
 			for (Atraccion atraccion : atraccionesIncluidas) {
 				System.out.println("- " + atraccion.imprimeAtraccion());
@@ -129,7 +129,7 @@ public class Itinerario {
 				PromocionAxB promo2 = (PromocionAxB) promo;
 				System.out.println(" -Atracciones Gratis: ");
 				List<Atraccion> atraccionesGratis = new ArrayList<Atraccion>();
-				atraccionesGratis = promo2.consultarAtraccionesGratis();
+				atraccionesGratis = promo2.getAtraccionesGratis();
 
 				for (Atraccion atraccionGratis : atraccionesGratis) {
 					System.out.println("- " + atraccionGratis.imprimeAtraccion());
@@ -157,7 +157,7 @@ public class Itinerario {
 		PrintWriter printWriter = null;
 
 		try {
-			file = new FileWriter("archivos/out/Itinerario" + usuario.consultarNombre() + ".out");
+			file = new FileWriter("archivos/out/Itinerario" + usuario.getNombreApellido() + ".out");
 
 			printWriter = new PrintWriter(file);
 
@@ -165,19 +165,19 @@ public class Itinerario {
 			printWriter.println("---------------------------------------------------------------------");
 			
 			printWriter.println();
-			printWriter.println("Usuario: " + usuario.consultarNombre());
+			printWriter.println("Usuario: " + usuario.getNombreApellido());
 			printWriter.println("---------------------------------------------------------------------");
 			
 			printWriter.println();
 			printWriter.println("Promociones:");
 			printWriter.println("------------");
 			for (Promocion promo : this.promocionesAceptadas) {
-				printWriter.println("Nombre Promocion: " + promo.consultarNombrePromocion());
+				printWriter.println("Nombre Promocion: " + promo.getNombrePromocion());
 				printWriter.println("Duracion: " + promo.calculoTiempoTotal());
 				printWriter.println("Atracciones incluidas: ");
 
 				List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-				atraccionesIncluidas = promo.consultarAtraccionesIncluidas();
+				atraccionesIncluidas = promo.getAtraccionesIncluidas();
 
 				for (Atraccion atraccion : atraccionesIncluidas) {
 					printWriter.println("- " + atraccion.imprimeAtraccion());
@@ -187,7 +187,7 @@ public class Itinerario {
 					PromocionAxB promo2 = (PromocionAxB) promo;
 					printWriter.println(" -Atracciones Gratis: ");
 					List<Atraccion> atraccionesGratis = new ArrayList<Atraccion>();
-					atraccionesGratis = promo2.consultarAtraccionesGratis();
+					atraccionesGratis = promo2.getAtraccionesGratis();
 
 					for (Atraccion atraccionGratis : atraccionesGratis) {
 						printWriter.println("- " + atraccionGratis.imprimeAtraccion());

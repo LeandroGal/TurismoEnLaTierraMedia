@@ -10,8 +10,8 @@ public class UsuarioTest {
 		
 		Usuario usuario = new Usuario("Frodo Bolson","Aventura",64,7f);
 		
-		boolean esperado=true;
-		boolean obtenido=usuario.actualizarPresupuestoYTiempo(20, 2);
+		boolean esperado = true;
+		boolean obtenido = usuario.actualizarPresupuestoYTiempo(20, 2);
 		
 		Assert.assertEquals(esperado, obtenido);
 		
@@ -22,8 +22,8 @@ public class UsuarioTest {
 		
 		Usuario usuario = new Usuario("Frodo Bolson","Aventura",19,7f);
 		
-		boolean esperado=false;
-		boolean obtenido=usuario.actualizarPresupuestoYTiempo(20, 2);
+		boolean esperado = false;
+		boolean obtenido = usuario.actualizarPresupuestoYTiempo(20, 2);
 		
 		Assert.assertEquals(esperado, obtenido);
 		

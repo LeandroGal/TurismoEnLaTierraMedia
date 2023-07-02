@@ -6,11 +6,15 @@ Usuario: Bilbo Bolson
 
 Promociones:
 ------------
+Nombre Promocion: Pack Aventura
+Duracion: 3.5
+Atracciones incluidas: 
+- [nombre = Mordor, duracionEnHs = 1.0, tipoAtraccion = Aventura]
+- [nombre = Moria, duracionEnHs = 2.5, tipoAtraccion = Aventura]
 
 Atracciones: 
 ------------
-- [nombre = Moria, duracionEnHs = 2.5, tipoAtraccion = Aventura]
 - [nombre = Lothlorien, duracionEnHs = 1.5, tipoAtraccion = Aventura]
 - [nombre = Delagua, duracionEnHs = 1.5, tipoAtraccion = Banquete]
-Precio final a abonar: 64 monedas de oro
-Duracion total del recorrido: 5.5 hs
+Precio final a abonar: 72 monedas de oro
+Duracion total del recorrido: 6.5 hs

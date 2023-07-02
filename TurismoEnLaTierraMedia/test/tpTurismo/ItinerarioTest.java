@@ -16,29 +16,29 @@ public class ItinerarioTest {
 
 		List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
 
-		Atraccion atraccion = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
+		Atraccion atraccion1 = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
 		Atraccion atraccion2 = new Atraccion("Bosque Negro", 19, 3, 1, "Aventura");
 		Atraccion atraccion3 = new Atraccion("Mordor", 18, 1, 4, "Aventura");
 		Atraccion atraccion4 = new Atraccion("Moria", 22, 2.5f, 6, "Aventura");
 
-		atraccionesIncluidas.add(atraccion);
+		atraccionesIncluidas.add(atraccion1);
 		atraccionesIncluidas.add(atraccion2);
 		atraccionesIncluidas.add(atraccion3);
 
-		PromocionAbsoluta promo = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
+		PromocionAbsoluta promoAbsoluta = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
 
 		List<Atraccion> atraccionesIncluidas2 = new ArrayList<Atraccion>();
 		atraccionesIncluidas2.add(atraccion4);
 		atraccionesIncluidas2.add(atraccion3);
 
-		PromocionPorcentual promo2 = new PromocionPorcentual("Pack Aventura", atraccionesIncluidas2, 1, 25);
+		PromocionPorcentual promoPorcentual = new PromocionPorcentual("Pack Aventura", atraccionesIncluidas2, 1, 25);
 
 		Itinerario itinerario = new Itinerario();
 
-		itinerario.agregarPromocion(promo);
+		itinerario.agregarPromocion(promoAbsoluta);
 
 		boolean esperado = false;
-		boolean obtenido = itinerario.puedeOfertarPromocion(promo2);
+		boolean obtenido = itinerario.puedeOfertarPromocion(promoPorcentual);
 
 		Assert.assertEquals(esperado, obtenido);
 
@@ -49,28 +49,28 @@ public class ItinerarioTest {
 
 		List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
 
-		Atraccion atraccion = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
+		Atraccion atraccion1 = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
 		Atraccion atraccion2 = new Atraccion("Bosque Negro", 19, 3, 1, "Aventura");
 		Atraccion atraccion3 = new Atraccion("Mordor", 18, 1, 4, "Aventura");
 		Atraccion atraccion4 = new Atraccion("Moria", 22, 2.5f, 6, "Aventura");
 
-		atraccionesIncluidas.add(atraccion);
+		atraccionesIncluidas.add(atraccion1);
 		atraccionesIncluidas.add(atraccion2);
 
-		PromocionAbsoluta promo = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
+		PromocionAbsoluta promoAbsoluta = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
 
 		List<Atraccion> atraccionesIncluidas2 = new ArrayList<Atraccion>();
 		atraccionesIncluidas2.add(atraccion4);
 		atraccionesIncluidas2.add(atraccion3);
 
-		PromocionPorcentual promo2 = new PromocionPorcentual("Pack Aventura", atraccionesIncluidas2, 1, 25);
+		PromocionPorcentual promoPorcentual = new PromocionPorcentual("Pack Aventura", atraccionesIncluidas2, 1, 25);
 
 		Itinerario itinerario = new Itinerario();
 
-		itinerario.agregarPromocion(promo);
+		itinerario.agregarPromocion(promoAbsoluta);
 
 		boolean esperado = true;
-		boolean obtenido = itinerario.puedeOfertarPromocion(promo2);
+		boolean obtenido = itinerario.puedeOfertarPromocion(promoPorcentual);
 
 		Assert.assertEquals(esperado, obtenido);
 
@@ -81,20 +81,20 @@ public class ItinerarioTest {
 
 		List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
 
-		Atraccion atraccion = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
+		Atraccion atraccion1 = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
 		Atraccion atraccion2 = new Atraccion("Bosque Negro", 19, 3, 1, "Aventura");
 		Atraccion atraccion3 = new Atraccion("Mordor", 18, 1, 4, "Aventura");
 		Atraccion atraccion4 = new Atraccion("Moria", 22, 2.5f, 6, "Aventura");
 
-		atraccionesIncluidas.add(atraccion);
+		atraccionesIncluidas.add(atraccion1);
 		atraccionesIncluidas.add(atraccion2);
 		atraccionesIncluidas.add(atraccion3);
 
-		PromocionAbsoluta promo = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
+		PromocionAbsoluta promoAbsoluta = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
 
 		Itinerario itinerario = new Itinerario();
 
-		itinerario.agregarPromocion(promo);
+		itinerario.agregarPromocion(promoAbsoluta);
 
 		boolean esperado = true;
 		boolean obtenido = itinerario.puedeOfertarAtraccion(atraccion4);
@@ -108,19 +108,19 @@ public class ItinerarioTest {
 
 		List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
 
-		Atraccion atraccion = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
+		Atraccion atraccion1 = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
 		Atraccion atraccion2 = new Atraccion("Bosque Negro", 19, 3, 1, "Aventura");
 		Atraccion atraccion3 = new Atraccion("Mordor", 18, 1, 4, "Aventura");
 
-		atraccionesIncluidas.add(atraccion);
+		atraccionesIncluidas.add(atraccion1);
 		atraccionesIncluidas.add(atraccion2);
 		atraccionesIncluidas.add(atraccion3);
 
-		PromocionAbsoluta promo = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
+		PromocionAbsoluta promoAbsoluta = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
 
 		Itinerario itinerario = new Itinerario();
 
-		itinerario.agregarPromocion(promo);
+		itinerario.agregarPromocion(promoAbsoluta);
 
 		boolean esperado = false;
 		boolean obtenido = itinerario.puedeOfertarAtraccion(atraccion2);
@@ -132,14 +132,14 @@ public class ItinerarioTest {
 	@Test
 	public void NoPuedeOfertarAtraccionEnAtraccionesAceptadas() {
 		
-		Atraccion atraccion4 = new Atraccion("Moria", 22, 2.5f, 6, "Aventura");
+		Atraccion atraccion1 = new Atraccion("Moria", 22, 2.5f, 6, "Aventura");
 
 		Itinerario itinerario = new Itinerario();
 
-		itinerario.agregarAtraccion(atraccion4);
+		itinerario.agregarAtraccion(atraccion1);
 
 		boolean esperado = false;
-		boolean obtenido = itinerario.puedeOfertarAtraccion(atraccion4);
+		boolean obtenido = itinerario.puedeOfertarAtraccion(atraccion1);
 
 		Assert.assertEquals(esperado, obtenido);
 
@@ -150,20 +150,20 @@ public class ItinerarioTest {
 		
 		List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
 
-		Atraccion atraccion = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
+		Atraccion atraccion1 = new Atraccion("Lothlorien", 21, 1.5f, 4, "Aventura");
 		Atraccion atraccion2 = new Atraccion("Bosque Negro", 19, 3, 1, "Aventura");
 		Atraccion atraccion3 = new Atraccion("Mordor", 18, 1, 4, "Aventura");
 		Atraccion atraccion4 = new Atraccion("Minas Tirith", 29, 1.5f, 4, "Paisaje");
 
-		atraccionesIncluidas.add(atraccion);
+		atraccionesIncluidas.add(atraccion1);
 		atraccionesIncluidas.add(atraccion2);
 		atraccionesIncluidas.add(atraccion3);
 
-		PromocionAbsoluta promo = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
+		PromocionAbsoluta promoAbsoluta = new PromocionAbsoluta("Pack Super Aventura", atraccionesIncluidas, 2, 34);
 		
 		Itinerario itinerario = new Itinerario();
 
-		itinerario.agregarPromocion(promo);
+		itinerario.agregarPromocion(promoAbsoluta);
 		itinerario.agregarAtraccion(atraccion4);
 		
 		Usuario usuario = new Usuario("Frodo Bolson","Aventura",64,7);

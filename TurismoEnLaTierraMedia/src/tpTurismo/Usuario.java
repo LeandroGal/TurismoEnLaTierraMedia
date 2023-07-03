@@ -41,10 +41,5 @@ public class Usuario {
 		return false;
 	}
 
-	@Override
-	public String toString() {
-		return "Usuario [nombreApellido = " + nombreApellido + ", tipoAtraccionPreferida = " + tipoAtraccionPreferida
-				+ ", presupuesto = " + presupuesto + ", horasDisponibles = " + tiempoDisponible + "]";
-	}
 	
 }

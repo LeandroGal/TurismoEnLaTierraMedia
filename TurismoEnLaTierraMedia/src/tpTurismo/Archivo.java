@@ -9,14 +9,13 @@ import java.util.Scanner;
 
 public class Archivo {
 
-	private static File file;
-	private static Scanner scanner = null;
-
 	public static List<Usuario> leerArchivoUsuarios() throws IOException {
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 
+		Scanner scanner = null;
+
 		try {
-			file = new File("archivos/in/Usuarios.in");
+			File file = new File("archivos/in/Usuarios.in");
 
 			scanner = new Scanner(file);
 
@@ -49,6 +48,8 @@ public class Archivo {
 
 	public static List<Atraccion> leerArchivoAtracciones() throws IOException {
 		List<Atraccion> atracciones = new ArrayList<Atraccion>();
+
+		Scanner scanner = null;
 
 		try {
 			File file = new File("archivos/in/Atracciones.in");
@@ -87,8 +88,9 @@ public class Archivo {
 	public static List<Promocion> leerArchivoPromociones(List<Atraccion> listaAtracciones) throws IOException {
 		List<Promocion> promociones = new ArrayList<Promocion>();
 
+		Scanner scanner = null;
 		try {
-			file = new File("archivos/in/Promociones.in");
+			File file = new File("archivos/in/Promociones.in");
 
 			scanner = new Scanner(file);
 

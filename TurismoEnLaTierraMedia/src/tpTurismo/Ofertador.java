@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class Ofertador {
 
-	private Scanner scanner = null;
 	private List<Usuario> listaUsuarios;
 	private List<Atraccion> listaAtracciones;
 	private List<Promocion> listaPromociones;
@@ -34,21 +33,25 @@ public class Ofertador {
 		}
 
 		this.listaPromociones = new ArrayList<Promocion>();
+
 		try {
 			listaPromociones = Archivo.leerArchivoPromociones(listaAtracciones);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
-	private void ofertarAtracciones(Usuario usuario, List<Atraccion> listaAtracciones, List<Promocion> listaPromociones,
-			List<Atraccion> atraccionesAOfertar, Itinerario itinerario) {
+	private void ofertarAtracciones(Usuario usuario, List<Atraccion> atraccionesAOfertar, Itinerario itinerario) {
+
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
 
 		for (Atraccion atraccion : atraccionesAOfertar) {
 
-			int indiceAtraccionAOfertar = listaAtracciones.indexOf(atraccion);
+			int indiceAtraccionAOfertar = this.listaAtracciones.indexOf(atraccion);
 
-			if (listaAtracciones.get(indiceAtraccionAOfertar).getCupo() > 0
+			if (this.listaAtracciones.get(indiceAtraccionAOfertar).getCupo() > 0
 					&& usuario.getPresupuesto() >= atraccion.getCosto()
 					&& usuario.getTiempoDisponible() >= atraccion.getDuracion()
 					&& itinerario.puedeOfertarAtraccion(atraccion)) {
@@ -80,7 +83,7 @@ public class Ofertador {
 					listaAtracciones.get(indiceAtraccionAOfertar).actualizarCupo();
 
 					// Actualizo cupo de las promociones que contengan la atraccion
-					for (Promocion promo : listaPromociones) {
+					for (Promocion promo : this.listaPromociones) {
 						if (promo.atraccionesIncluidas.contains(atraccion)) {
 
 							int indiceAtraccionContenida = promo.atraccionesIncluidas.indexOf(atraccion);
@@ -98,16 +101,19 @@ public class Ofertador {
 
 			System.out.println("---------------------------------------------------------------------");
 		}
+
 	}
 
-	private void ofertarPromociones(Usuario usuario, List<Atraccion> listaAtracciones, List<Promocion> listaPromociones,
-			List<Promocion> promocionesAOfertar, Itinerario itinerario) {
+	private void ofertarPromociones(Usuario usuario, List<Promocion> promocionesAOfertar, Itinerario itinerario) {
+
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
 
 		for (Promocion promo : promocionesAOfertar) {
 
-			int indicePromoAOfertar = listaPromociones.indexOf(promo);
+			int indicePromoAOfertar = this.listaPromociones.indexOf(promo);
 
-			if (listaPromociones.get(indicePromoAOfertar).tieneCupo()
+			if (this.listaPromociones.get(indicePromoAOfertar).tieneCupo()
 					&& usuario.getPresupuesto() >= promo.calculoPrecioFinal()
 					&& usuario.getTiempoDisponible() >= promo.calculoTiempoTotal()
 					&& itinerario.puedeOfertarPromocion(promo)) {
@@ -127,7 +133,7 @@ public class Ofertador {
 
 				while (!opcion.equalsIgnoreCase("S") && !opcion.equalsIgnoreCase("N")) {
 					System.out.println("Opción inválida. Por favor, ingresa 'S' o 'N'.");
-					System.out.print("¿Acepta la promocion? (S/N)");
+					System.out.print("¿Acepta la atraccion? (S/N)");
 					opcion = scanner.next();
 				}
 
@@ -137,10 +143,10 @@ public class Ofertador {
 					itinerario.agregarPromocion(promo);
 					usuario.actualizarPresupuestoYTiempo(promo.getPrecioFinal(), promo.getTiempoTotal());
 					// actualizo cupo de promo y atracciones
-					listaPromociones.get(indicePromoAOfertar).actualizarCupo();
+					this.listaPromociones.get(indicePromoAOfertar).actualizarCupo();
 
 					List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-					atraccionesIncluidas = listaPromociones.get(indicePromoAOfertar).getAtraccionesIncluidas();
+					atraccionesIncluidas = this.listaPromociones.get(indicePromoAOfertar).getAtraccionesIncluidas();
 
 					// actualiza cupo de las atracciones que se anoto
 					for (Atraccion atraccion : atraccionesIncluidas) {
@@ -158,16 +164,16 @@ public class Ofertador {
 			System.out.println("---------------------------------------------------------------------");
 
 		}
+
 	}
 
-	private void generarPromosPreferidasYRestantes(Usuario usuario, List<Promocion> listaPromociones,
-			List<Promocion> promocionesPreferidas, List<Promocion> promocionesRestantes) {
-		for (Promocion promocion : listaPromociones) {
+	private void generarPromosPreferidasYRestantes(Usuario usuario) {
+		for (Promocion promocion : this.listaPromociones) {
 			if (usuario.getTipoAtraccionPreferida().equals(promocion.getTipoAtraccion())) {
 
-				promocionesPreferidas.add(promocion);
+				this.promocionesPreferidas.add(promocion);
 			} else {
-				promocionesRestantes.add(promocion);
+				this.promocionesRestantes.add(promocion);
 			}
 
 		}
@@ -175,13 +181,12 @@ public class Ofertador {
 		Collections.sort(promocionesRestantes, new PromocionComparator());
 	}
 
-	private void generarAtraccionesPreferidasYRestantes(Usuario usuario, List<Atraccion> listaAtracciones,
-			List<Atraccion> atraccionesPreferidas, List<Atraccion> atraccionesRestantes) {
-		for (Atraccion atraccion : listaAtracciones) {
+	private void generarAtraccionesPreferidasYRestantes(Usuario usuario) {
+		for (Atraccion atraccion : this.listaAtracciones) {
 			if (usuario.getTipoAtraccionPreferida().equals(atraccion.getTipoAtraccion())) {
-				atraccionesPreferidas.add(atraccion);
+				this.atraccionesPreferidas.add(atraccion);
 			} else {
-				atraccionesRestantes.add(atraccion);
+				this.atraccionesRestantes.add(atraccion);
 			}
 		}
 		Collections.sort(atraccionesPreferidas, new AtraccionComparator());
@@ -190,20 +195,20 @@ public class Ofertador {
 
 	public void recorrerUsuariosYOfertar() {
 
-		scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
+
+		this.atraccionesPreferidas = new ArrayList<Atraccion>();
+		this.atraccionesRestantes = new ArrayList<Atraccion>();
+
+		this.promocionesPreferidas = new ArrayList<Promocion>();
+		this.promocionesRestantes = new ArrayList<Promocion>();
 
 		for (Usuario usuario : this.listaUsuarios) {
 			System.out.println();
 
-			atraccionesPreferidas = new ArrayList<Atraccion>();
-			atraccionesRestantes = new ArrayList<Atraccion>();
-			generarAtraccionesPreferidasYRestantes(usuario, this.listaAtracciones, atraccionesPreferidas,
-					atraccionesRestantes);
+			generarAtraccionesPreferidasYRestantes(usuario);
 
-			promocionesPreferidas = new ArrayList<Promocion>();
-			promocionesRestantes = new ArrayList<Promocion>();
-			generarPromosPreferidasYRestantes(usuario, this.listaPromociones, promocionesPreferidas,
-					promocionesRestantes);
+			generarPromosPreferidasYRestantes(usuario);
 
 			Itinerario itinerario = new Itinerario();
 
@@ -217,15 +222,13 @@ public class Ofertador {
 			System.out.println();
 			System.out.println("---------------------------------------------------------------------");
 
-			ofertarPromociones(usuario, this.listaAtracciones, this.listaPromociones, promocionesPreferidas,
-					itinerario);
+			ofertarPromociones(usuario, this.promocionesPreferidas, itinerario);
 
-			ofertarAtracciones(usuario, this.listaAtracciones, this.listaPromociones, atraccionesPreferidas,
-					itinerario);
+			ofertarAtracciones(usuario, this.atraccionesPreferidas, itinerario);
 
-			ofertarPromociones(usuario, this.listaAtracciones, this.listaPromociones, promocionesRestantes, itinerario);
+			ofertarPromociones(usuario, this.promocionesRestantes, itinerario);
 
-			ofertarAtracciones(usuario, this.listaAtracciones, this.listaPromociones, atraccionesRestantes, itinerario);
+			ofertarAtracciones(usuario, this.atraccionesRestantes, itinerario);
 
 			itinerario.mostrarItinerario();
 

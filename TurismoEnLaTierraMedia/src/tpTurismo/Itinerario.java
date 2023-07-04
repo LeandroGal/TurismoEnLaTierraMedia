@@ -20,7 +20,7 @@ public class Itinerario {
 		this.totalAPagar = 0;
 		this.tiempoTotal = 0;
 	}
-	
+
 	public List<Promocion> getPromocionesAceptadas() {
 		return promocionesAceptadas;
 	}
@@ -104,7 +104,6 @@ public class Itinerario {
 		this.totalAPagar += atraccion.getCosto();
 		this.tiempoTotal += atraccion.getDuracion();
 	}
-	
 
 	public void mostrarItinerario() {
 		System.out.println();
@@ -163,11 +162,11 @@ public class Itinerario {
 
 			printWriter.println("Itinerario final");
 			printWriter.println("---------------------------------------------------------------------");
-			
+
 			printWriter.println();
 			printWriter.println("Usuario: " + usuario.getNombreApellido());
 			printWriter.println("---------------------------------------------------------------------");
-			
+
 			printWriter.println();
 			printWriter.println("Promociones:");
 			printWriter.println("------------");
@@ -196,7 +195,7 @@ public class Itinerario {
 				}
 
 			}
-			
+
 			printWriter.println();
 			printWriter.println("Atracciones: ");
 			printWriter.println("------------");
